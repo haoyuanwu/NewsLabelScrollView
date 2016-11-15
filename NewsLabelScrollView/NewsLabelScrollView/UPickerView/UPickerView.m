@@ -138,7 +138,7 @@
         }
         flowLayout.itemSize = CGSizeMake(self.itemWidth, self.frame.size.height);
     }
-    self.collectionView.contentOffset = CGPointMake((self.number-2) * self.itemWidth, 0);
+    self.collectionView.contentOffset = CGPointMake((self.number-((_number-1)/2)) * self.itemWidth, 0);
     [self.collectionView reloadData];
 }
 
@@ -184,13 +184,13 @@
                 }
                 if (wself.delegate) {
                     for (int i = 0; i < wself.itemArr.count; i++) {
-                        NSString *string = newArray[index];
+                        NSString *string = newArray[index+((_number-1)/2)];
                         if ([string isEqualToString:self.itemArr[i]]) {
-                            [self.delegate UPickerView:self didSelectItemAtIndex:i title:newArray[index+2]];
+                            [self.delegate UPickerView:self didSelectItemAtIndex:i title:newArray[index+((_number-1)/2)]];
                             if (tmpLabel) {
                                 tmpLabel.textColor = [UIColor colorWithWhite:0.3 alpha:0.6];
                             }
-                            UPickerViewCell *cell = (UPickerViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index+2 inSection:0]];
+                            UPickerViewCell *cell = (UPickerViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index+((_number-1)/2) inSection:0]];
                             cell.textlabel.textColor = [UIColor blackColor];
                             tmpLabel = cell.textlabel;
                         }
@@ -217,13 +217,13 @@
     }
     if (self.delegate) {
         for (int i = 0; i < self.itemArr.count; i++) {
-            NSString *string = newArray[index+2];
+            NSString *string = newArray[index+((_number-1)/2)];
             if ([string isEqualToString:self.itemArr[i]]) {
-                [self.delegate UPickerView:self didSelectItemAtIndex:i+2 title:newArray[index+2]];
+                [self.delegate UPickerView:self didSelectItemAtIndex:i+2 title:newArray[index+((_number-1)/2)]];
                 if (tmpLabel) {
                     tmpLabel.textColor = [UIColor colorWithWhite:0.3 alpha:0.6];
                 }
-                UPickerViewCell *cell = (UPickerViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index+2 inSection:0]];
+                UPickerViewCell *cell = (UPickerViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index+((_number-1)/2) inSection:0]];
                 cell.textlabel.textColor = [UIColor blackColor];
                 tmpLabel = cell.textlabel;
             }
