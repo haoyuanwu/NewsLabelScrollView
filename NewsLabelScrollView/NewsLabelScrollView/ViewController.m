@@ -23,7 +23,7 @@
     
     UPickerView *view = [[UPickerView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.width/5)];
     view.itemArr = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"];
-    view.number = 4;
+    view.number = 5;
     view.delegate = self;
     [views addSubview:view];
     

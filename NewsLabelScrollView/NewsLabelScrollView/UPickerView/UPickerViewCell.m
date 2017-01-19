@@ -7,7 +7,6 @@
 //
 
 #import "UPickerViewCell.h"
-#import <UFoundation/UFoundation.h>
 
 @implementation UPickerViewCell
 
@@ -15,8 +14,8 @@
     if (self = [super initWithFrame:frame]) {
         
         self.textlabel = [[UILabel alloc] init];
-        self.textlabel.textColor = UCOLOR_OLIVE_BLACK5;
-        self.textlabel.font = UFONT_NORMAL;
+        self.textlabel.textColor = [UIColor grayColor];
+        self.textlabel.font = [UIFont systemFontOfSize:15];
         self.textlabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:self.textlabel];
         

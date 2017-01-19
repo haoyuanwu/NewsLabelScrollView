@@ -56,6 +56,8 @@
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
+        //减速速度
+        _collectionView.decelerationRate = 0.3;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.autoresizesSubviews = YES;
@@ -167,12 +169,13 @@
     __weak typeof (self)wself = self;
     
     scrollBlock = ^(CGFloat scrollX){
+        __strong typeof (wself)sself = wself;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (scrollX == scrollViewX) {
                 CGFloat num = scrollView.contentOffset.x/wself.itemWidth;
                 NSInteger index = num;
                 //判断结束的时候标签是否超过中心的一半
-                if (isBefore) {
+                if (sself->isBefore) {
                     index += 1;
                     [UIView animateWithDuration:0.25 animations:^{
                         scrollView.contentOffset = CGPointMake(index * wself.itemWidth, 0);
@@ -184,13 +187,13 @@
                 }
                 if (wself.delegate) {
                     for (int i = 0; i < wself.itemArr.count; i++) {
-                        NSString *string = newArray[index+((_number-1)/2)];
-                        if ([string isEqualToString:self.itemArr[i]]) {
-                            [self.delegate UPickerView:self didSelectItemAtIndex:i title:newArray[index+((_number-1)/2)]];
-                            if (tmpLabel) {
-                                tmpLabel.textColor = [UIColor colorWithWhite:0.3 alpha:0.6];
+                        NSString *string = sself->newArray[index+((_number-1)/2)];
+                        if ([string isEqualToString:wself.itemArr[i]]) {
+                            [wself.delegate UPickerView:wself didSelectItemAtIndex:i title:sself->newArray[index+((_number-1)/2)]];
+                            if (sself->tmpLabel) {
+                                sself->tmpLabel.textColor = [UIColor colorWithWhite:0.3 alpha:0.6];
                             }
-                            UPickerViewCell *cell = (UPickerViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index+((_number-1)/2) inSection:0]];
+                            UPickerViewCell *cell = (UPickerViewCell *)[wself.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index+((_number-1)/2) inSection:0]];
                             cell.textlabel.textColor = [UIColor blackColor];
                             tmpLabel = cell.textlabel;
                         }

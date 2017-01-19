@@ -131,7 +131,7 @@
 				TargetAttributes = {
 					507DC9FA1DCC20B900A52B5B = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Z6S5TUM7DB;
+						DevelopmentTeam = N934ALMKAN;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -295,7 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z6S5TUM7DB;
+				DEVELOPMENT_TEAM = N934ALMKAN;
 				INFOPLIST_FILE = NewsLabelScrollView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HY..NewsLabelScrollView;
@@ -307,7 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z6S5TUM7DB;
+				DEVELOPMENT_TEAM = N934ALMKAN;
 				INFOPLIST_FILE = NewsLabelScrollView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HY..NewsLabelScrollView;
